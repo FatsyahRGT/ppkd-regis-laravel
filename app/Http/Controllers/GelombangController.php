@@ -35,7 +35,7 @@ class GelombangController extends Controller
         
         $gelombang = Gelombang::create([
             'nama_gelombang' => $request->input('nama_gelombang'),
-            'aktif' => $request->aktif
+            'aktif' => 0
         ]);
         
         return redirect()->route('gelombang.index')->with('message', 'Data berhasil simpan');

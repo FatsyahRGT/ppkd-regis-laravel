@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_level');
+            $table->unsignedBigInteger('id_level');
             $table->string('nama_lengkap');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('id_level')->references('id')->on('levels')->onDelete('cascade');
+            $table->foreign('id_level')->references('id')->on('levels');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

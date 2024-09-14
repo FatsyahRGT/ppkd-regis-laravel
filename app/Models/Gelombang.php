@@ -13,4 +13,9 @@ class Gelombang extends Model
         'nama_gelombang', 
         'aktif', 
     ];
+    
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }
