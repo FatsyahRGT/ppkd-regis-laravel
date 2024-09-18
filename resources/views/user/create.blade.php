@@ -42,6 +42,19 @@
         </div>
     </div>
     <div class="mb-3 row">
+        <div class="col-sm-2">
+            <label for="" class="form-label">Jurusan <span class="text-danger"></label>
+        </div>
+        <div class="col-sm-5">
+            <select name="id_jurusan" id="" class="form-control">
+                <option value="">-- Pilih Jurusan --</option>
+                @foreach ($jurusans as $jurusan )
+                   <option value="{{$jurusan->id}}">{{$jurusan->nama_jurusan}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="mb-3 row">
         <div class="col-sm-10">
             <button class="btn btn-primary" type="submit">Simpan</button>
         </div>

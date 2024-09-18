@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Level;
+use App\Models\Jurusan;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -13,19 +14,21 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $users = User::orderBy('id', 'desc')->get();
-        return view('user.index', compact('users'));
-    }
+{
+    $users = User::orderBy('id', 'desc')->get();
+    $jurusans = Jurusan::get(); // Add this line
+    return view('user.index', compact('users', 'jurusans'));
+}
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
+        $jurusans = Jurusan::get();
         $users = User::get();
         $levels = Level::get();
-        return view('user.create', compact('users', 'levels'));
+        return view('user.create', compact('users', 'levels','jurusans'));
     }
 
     /**
